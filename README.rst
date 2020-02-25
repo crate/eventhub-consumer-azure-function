@@ -95,7 +95,7 @@ In this example we will setup an Azure Function locally. To publish the function
 
 **index.js**
 
-The Azure Function project contains a folder with the name you chose for the Azure function `3.1. Creating Azure Function project`_. In this folder there is a ``index.js`` file. Replace the content of this file with the content of the index.js file of this repository.
+The Azure Function project contains a folder with the name you chose for the Azure function `3.1. Creating Azure Function project`_. In this folder there is a ``index.js`` file. Replace the content of this file with the content of the ``index.js`` file of this repository.
 
 **package.json**
 
@@ -103,9 +103,9 @@ Add ``"pg": "^7.14.0"`` to the ``"dependencies"`` property of the ``package.json
 
 **local.setting.json**
 
-If you setup CrateDB using the example in `1.1. Starting a CrateDB Instance`_ add ``"CrateConnectionString": "postgres://crate@localhost:5432"`` at the bottom of the ``"Values"`` property in the ``local.settings.json`` file. 
+If you setup CrateDB using the example in `1.1. Starting a CrateDB Instance`_ add ``"CrateConnectionString": "postgres://crate@localhost:5432"`` at the bottom of the ``"Values"`` property in the ``local.settings.json`` file in the root directory of the project. 
 
-    **Note:** you need to add a ``,`` to the previous line.
+**Note:** you need to add a ``,`` to the previous line.
 
 If you use a CreateDB hosted somewhere else or the connection string from `1.1. Starting a CrateDB Instance`_ has a different port for Psql please change the value accordingly.
 
