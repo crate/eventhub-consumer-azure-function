@@ -78,7 +78,8 @@ In this example we will setup an Azure Function locally. To publish the function
 - Open this folder in VS Code. This can be done from the terminal by navigating to this folder and entering ``code ./``.
 - In VS Code open the Command Palette (Mac: ``CMD + SHIFT + P``, others: ``CTRL + SHIFT + P``) and type ``Azure Sign In``. 
 
-    - Confirm with by pressing ``Return`` and a browser window will open where you have to log into Microsoft Azure. This must be done with an account which has access to the Azure Subscription where you created the Event Hub in `2. Setting up Event Hub`_.
+    + Confirm with by pressing ``Return`` and a browser window will open where you have to log into Microsoft Azure. This must be done with an account which has access to the Azure Subscription where you created the Event Hub in `2. Setting up Event Hub`_.
+    
 - Open the Command Palette again and type ``Azure Functions Create New Project`` and confirm by pressing ``Return``. 
 - In the popup chose the folder you created as the project folder. 
 - Chose Javascript as the project language (you can chose other languages but this repository provides example code for Javascript). 
