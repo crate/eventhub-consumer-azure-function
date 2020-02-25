@@ -13,7 +13,7 @@ Files
 - README.rst: Instructions on how to use this repository.
 - index.js: Example script to ingest data into CrateDB via Azure Functions.
 
-Prerequisites
+Requirements
 -------------
 
 - Microsoft Azure Account
@@ -36,8 +36,7 @@ The easiest way to setup CrateDB is using ``cr8``. Run the following command in 
 
     cr8 run-crate 4.1.x -e CRATE_HEAP_SIZE=2G --keep-data -s path.data=$HOME/crate/example
 
-This starts a CrateDB Instance running on the local machine using up to 2GB of memory. The data is stored in the path given to ``path.data``. In the 
-The command should also print the connection strings to the shell window, the defaults are:
+This starts a CrateDB Instance running on the local machine using up to 2GB of memory. The data is stored in the path given to ``path.data``. The command also prints the connection strings to the shell window, the defaults are:
 
 .. code-block:: shell
 
@@ -58,7 +57,8 @@ For the included example script ``index.js`` to work properly we need to create 
         "payload" OBJECT(DYNAMIC)
     );
 
-.. note::
+.. code-block:: text
+
     When the CrateDB Instance has been created with the command above the SQL Console can be reached via http://localhost:4200/#!/console. Otherwise the url and port have to be replaced with the correct values.
 
 The table only contains one column ("payload") of type ``OBJECT(Dynamic)`` (`See here <https://crate.io/docs/crate/reference/en/latest/general/ddl/data-types.html#object>`__). This enables the script to directly insert incoming events from the Azure Event Hub into the table.
@@ -107,7 +107,8 @@ Add ``"pg": "^7.14.0"`` to the ``"dependencies"`` property of the ``package.json
 
 If you setup CrateDB using the example in `1.1. Starting a CrateDB Instance`_ add ``"CrateConnectionString": "postgres://crate@localhost:5432"`` at the bottom of the ``"Values"`` property in the ``local.settings.json`` file. 
 
-.. note::
+.. code-block:: text
+
     you need to add a ``,`` to the previous line.
 
 If you use a CreateDB hosted somewhere else or the connection string from `1.1. Starting a CrateDB Instance`_ has a different port for Psql please change the value accordingly.
