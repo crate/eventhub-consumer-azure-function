@@ -59,7 +59,7 @@ For the included example script ``index.js`` to work properly we need to create 
 
 **Note:** When the CrateDB Instance has been created with the command above the SQL Console can be reached via http://localhost:4200/#!/console. Otherwise the url and port have to be replaced with the correct values.
 
-The table only contains one column ("payload") of type ``OBJECT(Dynamic)`` (`See here <https://crate.io/docs/crate/reference/en/latest/general/ddl/data-types.html#object>`__). This enables the script to directly insert incoming events from the Azure Event Hub into the table.
+The table only contains one column ("payload") of type ``OBJECT(Dynamic)`` (See `here <https://crate.io/docs/crate/reference/en/latest/general/ddl/data-types.html#object>`__ for more Information on the Object data type). This enables the script to directly insert incoming events from the Azure Event Hub into the table.
 
 2. Setting up Event Hub
 -----------------------
@@ -69,26 +69,26 @@ Follow this `guide <https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs
 3. Setting up Azure Function
 ----------------------------
 
-In this example we will setup an Azure Function locally. To publish the function to Azure please refer to this `guide <https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#publish-to-azure>`__
+In this example we will setup an Azure Function locally. To publish the function to Azure please refer to this `guide <https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp#publish-to-azure>`__.
 
 3.1. Creating Azure Function project
 ====================================
 
-* Create a new empty folder on your computer
-* Open this folder in VS Code. This can be done from the terminal by navigating to this folder and entering ``code ./``.
-* In VS Code open the Command Palette (Mac: ``CMD + SHIFT + P``, others: ``CTRL + SHIFT + P``) and type ``Azure Sign In``. 
-   * Confirm with by pressing ``Return`` and a browser window will open where you have to log into Microsoft Azure. This must be done with an account which has access to the Azure Subscription where you created the Event Hub in `2. Setting up Event Hub`_.
-* Open the Command Palette again and type ``Azure Functions Create New Project`` and confirm by pressing ``Return``. 
-* In the popup chose the folder you created as the project folder. 
-* Chose Javascript as the project language (you can chose other languages but this repository provides example code for Javascript). 
-* Chose ``Azure Event Hub trigger`` as trigger for the project. Next you can chose a name for the Azure Function e.g. "CrateDBIngest". 
-* Chose ``Create new local app setting``. 
-* Chose the Azure Subscription you chose in `2. Setting up Event Hub`_.
-* Chose the Event Hub Namespace you created/selected in `2. Setting up Event Hub`_.
-* Chose the Event Hub you created/selected in `2. Setting up Event Hub`_.
-* Chose the Policy you created in `2. Setting up Event Hub`_. If you didn't create a Policy chose the existing Policy "RootManageSharedAccessKey".
-* Chose "$Default" as the Event Hub consumer group. 
-* The Azure Function project is now being created.
+- Create a new empty folder on your computer.
+- Open this folder in VS Code. This can be done from the terminal by navigating to this folder and entering ``code ./``.
+- In VS Code open the Command Palette (Mac: ``CMD + SHIFT + P``, others: ``CTRL + SHIFT + P``) and type ``Azure Sign In``. 
+   - Confirm with by pressing ``Return`` and a browser window will open where you have to log into Microsoft Azure. This must be done with an account which has access to the Azure Subscription where you created the Event Hub in `2. Setting up Event Hub`_.
+- Open the Command Palette again and type ``Azure Functions Create New Project`` and confirm by pressing ``Return``. 
+- In the popup chose the folder you created as the project folder. 
+- Chose Javascript as the project language (you can chose other languages but this repository provides example code for Javascript). 
+- Chose ``Azure Event Hub trigger`` as trigger for the project. Next you can chose a name for the Azure Function e.g. "CrateDBIngest". 
+- Chose ``Create new local app setting``. 
+- Chose the Azure Subscription you chose in `2. Setting up Event Hub`_.
+- Chose the Event Hub Namespace you created/selected in `2. Setting up Event Hub`_.
+- Chose the Event Hub you created/selected in `2. Setting up Event Hub`_.
+- Chose the Policy you created in `2. Setting up Event Hub`_. If you didn't create a Policy chose the existing Policy "RootManageSharedAccessKey".
+- Chose "$Default" as the Event Hub consumer group. 
+- The Azure Function project is now being created.
 
 3.2. Setup Azure Function Project for use with CrateDB
 ======================================================
