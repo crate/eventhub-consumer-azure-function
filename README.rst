@@ -114,8 +114,8 @@ If you use a CreateDB hosted somewhere else please change the values accordingly
 
 Press ``F5`` to run the Azure Function. When running for the first time you should get a popup saying you must select a storage account:
 
-* Chose ``Select storage account``.
-* Chose the Azure Subscription you chose in `2. Setting up Event Hub`_. 
+* Choose ``Select storage account``.
+* Choose the Azure Subscription you chose in `2. Setting up Event Hub`_. 
 * Create a new storage account or select an existing one
 * The storage account will automatically be added to your ``local.settings.json`` file.
 
