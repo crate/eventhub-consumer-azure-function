@@ -1,1 +1,0 @@
-# eventhub-consumer-azure-function
