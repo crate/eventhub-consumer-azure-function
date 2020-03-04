@@ -12,14 +12,18 @@
  * Last modified    : -
  */
 
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
 const CRATE_CONNECTION_STRING = process.env['CrateConnectionString'];
 const TABLE = 'doc.raw_data';
 const COLUMN_PAYLOAD = 'payload';
 
-const crateClient = new Client({ connectionString: CRATE_CONNECTION_STRING });
-crateClient.connect();
+const cratePool = new Pool({
+    connectionString: CRATE_CONNECTION_STRING,
+    idleTimeoutMillis: 15000,
+    connectionTimeoutMillis: 5000,
+    query_timeout: 30000,
+});
 
 module.exports = async function (context, eventHubMessages) {
 
@@ -35,8 +39,11 @@ module.exports = async function (context, eventHubMessages) {
     const stmt = `INSERT INTO ${TABLE} (${COLUMN_PAYLOAD}) ` +
         `(SELECT col1 FROM UNNEST ([${messages}]));`;
 
+    const crateClient = await cratePool.connect();
     await crateClient.query(stmt)
-        .catch(error => {
-            context.log("Insertion error", error);
-        });
+        .catch(err => {
+            context.log.error(err);
+            throw err;
+        })
+        .finally(() => crateClient.release());
 };
