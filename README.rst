@@ -150,3 +150,22 @@ This is saved to the database table "raw_data" in the "payload" column:
             power: 1000
             voltage: 240
         timestamp: 2020-02-20 20:20:20
+
+Contributing
+------------
+
+This project is primarily maintained by Crate.io_, but we welcome community
+contributions!
+
+See the `contribution docs`_ for more information.
+
+Help
+----
+
+Looking for more help?
+
+- Check out our `support channels`_
+
+.. _contribution docs: CONTRIBUTING.rst
+.. _Crate.io: http://crate.io/
+.. _support channels: https://crate.io/support/
